@@ -46,7 +46,7 @@ public class RedisAPIInteractor implements QuarkusApplication{
 		restClient.createRedisUser(createRedisUser("John Doe", "john.doe@example.com", new Integer[]{2}));
 		
 		LOG.info("Creating User Mike Smith with email mike.smith@example.com and Role db_member");
-		restClient.createRedisUser(createRedisUser("Mike Smith", "mike.smith@example.com", new Integer[]{4}));
+		restClient.createRedisUser(createRedisUser("Mike Smith", "mike.smith@example.com", new Integer[]{3}));
 		
 		LOG.info("Creating User Cary Johnson with email cary.johnson@example.com and Role admin");
 		restClient.createRedisUser(createRedisUser("Cary Johnson", "cary.johnson@example.com", new Integer[]{1}));
@@ -56,7 +56,7 @@ public class RedisAPIInteractor implements QuarkusApplication{
 		userList.forEach(user -> LOG.info("Name: "+user.name+" Email: "+user.email+ "Role: "+user.role));
 
 		LOG.info("Deleting Database with uid: "+createdDB.uid);
-		restClient.deleteRedisDB(7l);
+		restClient.deleteRedisDB(createdDB.uid);
 		return 0;
 	}
     
